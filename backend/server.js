@@ -35,7 +35,8 @@ async function getMongoDBUri() {
     const mongoServiceName = process.env.MONGO_SERVICE; // Use 'mong  o' as the default service name
     const services = await consulClient.catalog.service.nodes(mongoServiceName);
     if (services && services.length > 0) {
-      const mongoInstance = services[0];
+      const randomIndex = Math.floor(Math.random() * services.length);
+      const mongoInstance = services[randomIndex];
       mongoUri = `mongodb://${mongoInstance.Address}:${mongoInstance.ServicePort}/todos`;
       isUsingConsul = true; // Update flag
     } else {
