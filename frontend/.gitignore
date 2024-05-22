@@ -64,7 +64,7 @@ jspm_packages/
 
 # gatsby files
 .cache/
-public
+
 
 # TypeScript
 *.tsbuildinfo
